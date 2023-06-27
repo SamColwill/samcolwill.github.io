@@ -1,5 +1,5 @@
-const worldwidth = 400;
-const worldheight = 200;
+const worldwidth = 300;
+const worldheight = 150;
 
 //initialse both world and nextworld
 var world = new Array(worldwidth);
