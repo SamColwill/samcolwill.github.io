@@ -1,0 +1,32 @@
+body {
+    background-color: #28282B;
+}
+  
+h1 {
+    color: white;
+    font-family: monospace;
+    font-size: 12px;
+}
+  
+p {
+    color: white;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+a {
+    color: white;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+label {
+    color: white;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+input {
+    font-family: monospace;
+    font-size: 12px;
+}
