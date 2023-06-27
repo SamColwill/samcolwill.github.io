@@ -14,18 +14,17 @@
 
         <canvas id="gameoflifecanvas" width="1200" height="600"></canvas>
         <br>
-        <input type="button" value="start" onclick="gameoflifetick()"/></input>
-        <input type="button" value="stop" onclick="gameoflifetick()"/></input>
-        <input type="button" value="reset" onclick="gameoflifetick()"/></input>
-        <input type="button" value="add still life" onclick="gameoflifetick()"/></input>
-        <input type="button" value="add oscillator" onclick="gameoflifetick()"/></input>
-        <input type="button" value="add spaceship" onclick="gameoflifetick()"/></input>
-        <input type="button" value="add spaceship" onclick="gameoflifetick()"/></input>
-        <input type="button" value="add glider gun" onclick="gameoflifetick()"/></input>
+        <input type="button" value="start" onclick="startgameoflife()"/></input>
+        <input type="button" value="stop" onclick="stopgameoflife()"/></input>
+        <input type="button" value="reset" onclick="resetgameoflife()"/></input>
+        <input type="button" value="add still life" onclick="addlife('block')"/></input>
+        <input type="button" value="add oscillator" onclick="addlife('toad')"/></input>
+        <input type="button" value="add spaceship" onclick="addlife('light-weight spaceship')"/></input>
+        <input type="button" value="add glider gun" onclick="addlife('glider gun')"/></input>
         <br>
         <p><u>conway's game of life</u>
         <br>The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician
-        <br>John Horton Conway in 1970. It is a zero-player game, meaningthat its evolution is determined by its
+        <br>John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its
         <br>initial state, requiring no further input. One interacts with the Game of Life by creating an initial
         <br>configuration and observing how it evolves. It is Turing complete and can simulate a universal constructor
         <br>or any other Turing machine.
