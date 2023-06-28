@@ -2,7 +2,9 @@ function piglatin() {
     
     const vowels = "aeoiu";
 
-    const original = document.getElementById("input").value.split(" ");
+    var input = document.getElementById("input");
+
+    const original = input.value.split(" ");
 
     let piglatin = "";
     for (let x of original) {
@@ -17,5 +19,5 @@ function piglatin() {
         }
     }
 
-    document.getElementById("output").innerHTML = piglatin;
+    input.value = piglatin;
 }
