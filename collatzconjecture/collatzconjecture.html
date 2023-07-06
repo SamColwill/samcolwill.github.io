@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>collatzconjecture</title>
+
+        <link rel="stylesheet" href="../styles/base.css"></link>
+        <link rel="stylesheet" href="collatzconjecture.css"></link>
+
+        <script src="collatzconjecture.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+    <body>
+        <a href="../index.html"><img src="../images/me.jpg" width="50" height="50"></img></a>
+        <h1>samcolwill</h1>
+
+        <canvas id="graph" width="1200" height="600"></canvas>
+        <br>
+        <input type="button" value="drawgraph" onclick="initialsecanvas()"/></input>
+        <input id="startingnumber" type="text"></input>
+        <br>
+        <p><u>collatz conjecture</u>
+        <br>The Collatz conjecture is one of the most famous unsolved problems in mathematics. The conjecture asks
+        <br>whether repeating two simple arithmetic operations will eventually transform every positive integer
+        <br>into 1. It concerns sequences of integers in which each term is obtained from the previous term as
+        <br>follows: if the previous term is even, the next term is one half of the previous term. If the previous
+        <br>term is odd, the next term is 3 times the previous term plus 1. The conjecture is that these sequences
+        <br>always reach 1, no matter which positive integer is chosen to start the sequence.
+        </p>
+
+    </body>
+</html>
