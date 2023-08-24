@@ -15,35 +15,41 @@ function loadbasestats() {
     spdbase.value = "10";
   }
 
-  $(document).ready(function(){
-    $('#loadbasestats').click(function(){
-     $.ajax({
-      url:"pokemon stats.csv",
-      dataType:"text",
-      success:function(data)
-      {
-       var employee_data = data.split(/\r?\n|\r/);
-       var table_data = '<table class="table table-bordered table-striped">';
-       for(var count = 0; count<employee_data.length; count++)
-       {
-        var cell_data = employee_data[count].split(",");
-        table_data += '<tr>';
-        for(var cell_count=0; cell_count<cell_data.length; cell_count++)
-        {
-         if(count === 0)
-         {
-          table_data += '<th>'+cell_data[cell_count]+'</th>';
-         }
-         else
-         {
-          table_data += '<td>'+cell_data[cell_count]+'</td>';
-         }
+  jQuery(document).ready(function(){
+    jQuery('#loadbasestats').click(function(){
+      jQuery.ajax({
+        url:"pokemon statistics.csv",
+        dataType:"text",
+        success:function(data){
+          var pokemon_statistics_data = data.split(/\r?\n|\r/);
+          console.log("pokemon_statistics_data");
+          console.log(pokemon_statistics_data);
+          console.log("...");
+          console.log("pokemon_statistics_data[0]");
+          console.log(pokemon_statistics_data[0]);
+          console.log("...");
+          var table_data = '<table class="table table-bordered table-striped">';
+          for(var count = 0; count<pokemon_statistics_data.length; count++){
+            var cell_data = pokemon_statistics_data[count].split(",");
+            console.log("cell_data");
+            console.log(cell_data);
+            console.log("...");
+            console.log("cell_data[0]");
+            console.log(cell_data[0]);
+            console.log("...");
+            table_data += '<tr>';
+            for(var cell_count=0; cell_count<cell_data.length; cell_count++){
+              if(count === 0){
+                table_data += '<th>'+cell_data[cell_count]+'</th>';
+              }else{
+                table_data += '<td>'+cell_data[cell_count]+'</td>';
+              }
+            }
+            table_data += '</tr>';
+          }
+          table_data += '</table>';
+          jQuery('#employee_table').html(table_data);
         }
-        table_data += '</tr>';
-       }
-       table_data += '</table>';
-       $('#employee_table').html(table_data);
-      }
-     });
+      });
     });
   });
