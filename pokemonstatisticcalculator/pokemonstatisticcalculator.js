@@ -22,33 +22,21 @@ function loadbasestats() {
         dataType:"text",
         success:function(data){
           var pokemon_statistics_data = data.split(/\r?\n|\r/);
-          console.log("pokemon_statistics_data");
-          console.log(pokemon_statistics_data);
-          console.log("...");
-          console.log("pokemon_statistics_data[0]");
-          console.log(pokemon_statistics_data[0]);
-          console.log("...");
-          var table_data = '<table class="table table-bordered table-striped">';
           for(var count = 0; count<pokemon_statistics_data.length; count++){
-            var cell_data = pokemon_statistics_data[count].split(",");
-            console.log("cell_data");
-            console.log(cell_data);
-            console.log("...");
-            console.log("cell_data[0]");
-            console.log(cell_data[0]);
-            console.log("...");
-            table_data += '<tr>';
-            for(var cell_count=0; cell_count<cell_data.length; cell_count++){
-              if(count === 0){
-                table_data += '<th>'+cell_data[cell_count]+'</th>';
-              }else{
-                table_data += '<td>'+cell_data[cell_count]+'</td>';
-              }
-            }
-            table_data += '</tr>';
+            var pokemon_statistics = pokemon_statistics_data[count].split(",");
+            console.log("Name: " + pokemon_statistics[1]);
+            console.log("HP: " + pokemon_statistics[2]);
+            console.log("Attack: " + pokemon_statistics[3]);
+            console.log("Defence: " + pokemon_statistics[4]);
+            console.log("Sp. Atk: " + pokemon_statistics[5]);
+            console.log("Sp. Def: " + pokemon_statistics[6]);
+            console.log("Speed: " + pokemon_statistics[7]);
+            jQuery("#hpbase").val(pokemon_statistics[2]);
+            jQuery("#atkbase").val(pokemon_statistics[3]);
+            jQuery("#defbase").val(pokemon_statistics[4]);
+            jQuery("#splbase").val(pokemon_statistics[5]);
+            jQuery("#spdbase").val(pokemon_statistics[7]);
           }
-          table_data += '</table>';
-          jQuery('#employee_table').html(table_data);
         }
       });
     });
