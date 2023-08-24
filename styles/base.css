@@ -30,3 +30,13 @@ input {
     font-family: monospace;
     font-size: 12px;
 }
+
+datalist {
+    font-family: monospace;
+    font-size: 12px;
+}
+
+option {
+    font-family: monospace;
+    font-size: 12px;
+}
