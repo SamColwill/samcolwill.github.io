@@ -173,36 +173,74 @@
             <option>Mewtwo</option>
             <option>Mew</option>
         </datalist>
+        <br>
+        <input id="level" placeholder="Level" value = ""></input>
+        <br>
+        <input id="nature" list="nature_list" placeholder="Nature">
+        <datalist id="nature_list">
+            <option>Adamant</option>
+            <option>Bashful</option>
+            <option>Bold</option>
+            <option>Brave</option>
+            <option>Calm</option>
+            <option>Careful</option>
+            <option>Docile</option>
+            <option>Gentle</option>
+            <option>Hardy</option>
+            <option>Hasty</option>
+            <option>Impish</option>
+            <option>Jolly</option>
+            <option>Lax</option>
+            <option>Lonely</option>
+            <option>Mild</option>
+            <option>Modest</option>
+            <option>Naive</option>
+            <option>Naughty</option>
+            <option>Quiet</option>
+            <option>Quirky</option>
+            <option>Rash</option>
+            <option>Relaxed</option>
+            <option>Sass</option>
+            <option>Serious</option>
+            <option>Timid</option>
+        </datalist>
+        <br>
+        <br>
         <input id="loadbasestats" type="button" value="load base stats"></input>
         <br>
         <br>
-        <input id="hpiv" placeholder="HP IV" class="iv"></input>
-        <input id="hpev" placeholder="HP EV" class="ev"></input>
-        <input id="hpbase" placeholder="HP Base" class="base" readonly></input>
-        <input id="hpstat" placeholder="HP" class="output" readonly></input>
+        <input id="hpiv" placeholder="HP IV" class="iv" value = ""></input>
+        <input id="hpev" placeholder="HP EV" class="ev" value = ""></input>
+        <input id="hpbase" placeholder="HP Base" class="base" value = ""></input>
+        <input id="hpstat" placeholder="HP" class="output" value = ""></input>
         <br>
-        <input id="atkiv" placeholder="Attack IV" class="iv"></input>
-        <input id="atkev" placeholder="Attack EV" class="ev"></input>
-        <input id="atkbase" placeholder="Attack Base" class="base" readonly></input>
-        <input id="atkstat" placeholder="Attack" class="output"  readonly></input>
+        <input id="attackiv" placeholder="Attack IV" class="iv" value = ""></input>
+        <input id="attackev" placeholder="Attack EV" class="ev" value = ""></input>
+        <input id="attackbase" placeholder="Attack Base" class="base" value = ""></input>
+        <input id="attackstat" placeholder="Attack" class="output" value = ""></input>
         <br>
-        <input id="defiv" placeholder="Defense IV" class="iv"></input>
-        <input id="defev"placeholder="Defense EV" class="ev"></input>
-        <input id="defbase" placeholder="Defence Base" class="base" readonly></input>
-        <input id="defstat" placeholder="Defence" class="output" readonly></input>
+        <input id="defenceiv" placeholder="Defense IV" class="iv" value = ""></input>
+        <input id="defenceev"placeholder="Defense EV" class="ev" value = ""></input>
+        <input id="defencebase" placeholder="Defence Base" class="base" value = ""></input>
+        <input id="defencestat" placeholder="Defence" class="output" value = ""></input>
         <br>
-        <input id="spliv" placeholder="Special IV" class="iv"></input>
-        <input id="splev" placeholder="Special EV" class="ev"></input>
-        <input id="splbase" placeholder="Special Base" class="base" readonly></input>
-        <input id="splstat" placeholder="Special" class="output" readonly></input>
+        <input id="sp.atkiv" placeholder="Sp. Atk IV" class="iv" value = ""></input>
+        <input id="sp.atkev" placeholder="Sp. Atk EV" class="ev" value = ""></input>
+        <input id="sp.atkbase" placeholder="Sp. Atk Base" class="base" value = ""></input>
+        <input id="sp.atkstat" placeholder="Sp. Atk" class="output" value = ""></input>
         <br>
-        <input id="spdiv" placeholder="Speed IV" class="iv"></input>
-        <input id="spdev" placeholder="Speed EV" class="ev"></input>
-        <input id="spdbase" placeholder="Speed Base" class="base" readonly></input>
-        <input id="spdstat" placeholder="Speed" class="output" readonly></input>
+        <input id="sp.defiv" placeholder="Sp. Def IV" class="iv" value = ""></input>
+        <input id="sp.defev" placeholder="Sp. Def EV" class="ev" value = ""></input>
+        <input id="sp.defbase" placeholder="Sp. Def Base" class="base" value = ""></input>
+        <input id="sp.defstat" placeholder="Sp. Def" class="output" value = ""></input>
+        <br>
+        <input id="speediv" placeholder="Speed IV" class="iv" value = ""></input>
+        <input id="speedev" placeholder="Speed EV" class="ev" value = ""></input>
+        <input id="speedbase" placeholder="Speed Base" class="base" value = ""></input>
+        <input id="speedstat" placeholder="Speed" class="output" value = ""></input>
         <br>
         <br>
-        <input type="button" value="calculate" onclick="calculate()"/></input>
+        <input id="calculate" type="button" value="calculate"/></input>
         <br>
         <p><u>pokemonstatisticcalculator</u>
         <br>Pokemon is a Japanese media franchise encompassing video games, animated series and films, a trading card

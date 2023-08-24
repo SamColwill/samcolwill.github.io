@@ -1,43 +1,77 @@
-function loadbasestats() {
-    hpbase = document.getElementById("hpbase");
-    hpbase.value = "10";
-
-    atkbase = document.getElementById("atkbase");
-    atkbase.value = "10";
-
-    defbase = document.getElementById("defbase");
-    defbase.value = "10";
-
-    splbase = document.getElementById("splbase");
-    splbase.value = "10";
-
-    spdbase = document.getElementById("spdbase");
-    spdbase.value = "10";
-  }
-
-  jQuery(document).ready(function(){
-    jQuery('#loadbasestats').click(function(){
-      jQuery.ajax({
-        url:"pokemon statistics.csv",
-        dataType:"text",
-        success:function(data){
-          var pokemon_statistics_data = data.split(/\r?\n|\r/);
-          for(var count = 0; count<pokemon_statistics_data.length; count++){
-            var pokemon_statistics = pokemon_statistics_data[count].split(",");
-            console.log("Name: " + pokemon_statistics[1]);
-            console.log("HP: " + pokemon_statistics[2]);
-            console.log("Attack: " + pokemon_statistics[3]);
-            console.log("Defence: " + pokemon_statistics[4]);
-            console.log("Sp. Atk: " + pokemon_statistics[5]);
-            console.log("Sp. Def: " + pokemon_statistics[6]);
-            console.log("Speed: " + pokemon_statistics[7]);
-            jQuery("#hpbase").val(pokemon_statistics[2]);
-            jQuery("#atkbase").val(pokemon_statistics[3]);
-            jQuery("#defbase").val(pokemon_statistics[4]);
-            jQuery("#splbase").val(pokemon_statistics[5]);
-            jQuery("#spdbase").val(pokemon_statistics[7]);
+jQuery(document).ready(function(){
+  jQuery('#loadbasestats').click(function(){
+    jQuery.ajax({
+      url:"pokemon statistics.csv",
+      dataType:"text",
+      success:function(data){
+        var pokemon_statistics_data = data.split(/\r?\n|\r/);
+        for(var count = 0; count<pokemon_statistics_data.length; count++){
+          var pokemon_base_statistics = pokemon_statistics_data[count].split(",");
+          if(pokemon_base_statistics[1] == jQuery('#pokemon').val()) {
+            jQuery('#hpbase').val(pokemon_base_statistics[2]);
+            jQuery('#attackbase').val(pokemon_base_statistics[3]);
+            jQuery('#defencebase').val(pokemon_base_statistics[4]);
+            jQuery('#sp.atkbase').val(pokemon_base_statistics[5]);
+            jQuery('#sp.defbase').val(pokemon_base_statistics[6]);
+            jQuery('#speedbase').val(pokemon_base_statistics[7]);
           }
         }
-      });
+      }
     });
   });
+
+  jQuery('#calculate').click(function(){
+    jQuery('#hpstat').val(calculate_hpstat_gen12(
+      parseInt(jQuery('#level').val()),
+      parseInt(jQuery('#hpiv').val()),
+      parseInt(jQuery('#hpev').val()),
+      parseInt(jQuery('#hpbase').val())
+    ));
+    jQuery('#attackstat').val(calculate_stat_gen12(
+      parseInt(jQuery('#level').val()),
+      parseInt(jQuery('#attackiv').val()),
+      parseInt(jQuery('#attackev').val()),
+      parseInt(jQuery('#attackbase').val())
+    ));
+    jQuery('#defencestat').val(calculate_stat_gen12(
+      parseInt(jQuery('#level').val()),
+      parseInt(jQuery('#defenceiv').val()),
+      parseInt(jQuery('#defenceev').val()),
+      parseInt(jQuery('#defencebase').val())
+    ));
+    jQuery('#sp.atkstat').val(calculate_stat_gen12(
+      parseInt(jQuery('#level').val()),
+      parseInt(jQuery('#sp.atkiv').val()),
+      parseInt(jQuery('#sp.atkev').val()),
+      parseInt(jQuery('#sp.atkbase').val())
+    ));
+    jQuery('#sp.defstat').val(calculate_stat_gen12(
+      parseInt(jQuery('#level').val()),
+      parseInt(jQuery('#sp.defiv').val()),
+      parseInt(jQuery('#sp.defev').val()),
+      parseInt(jQuery('#sp.defbase').val())
+    ));
+    jQuery('#speedstat').val(calculate_stat_gen12(
+      parseInt(jQuery('#level').val()),
+      parseInt(jQuery('#speediv').val()),
+      parseInt(jQuery('#speedev').val()),
+      parseInt(jQuery('#speedbase').val())
+    ));
+  });
+});
+
+function calculate_hpstat_gen12(level, iv, ev, base) {
+  return (((base * iv) * 2 + (Math.sqrt(ev) / 4) * level) / 100) + level + 10;
+}
+
+function calculate_stat_gen12(level, iv, ev, base) {
+  return (((base * iv) * 2 + (Math.sqrt(ev) / 4) * level) / 100) + 5;
+}
+
+function calculate_hpstat_gen3plus(level, iv, ev, base) {
+  return ((2 * base * iv + (Math.sqrt(ev) / 4) * level) / 100) + level + 10;
+}
+
+function calculate_stat_gen3plus(level, nature, iv, ev, base) {
+  return (((2 * base * iv + (Math.sqrt(ev) / 4) * level) / 100) + 5) * nature;
+}
