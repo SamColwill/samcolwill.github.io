@@ -224,15 +224,15 @@
         <input id="defencebase" placeholder="Defence Base" class="base" value = ""></input>
         <input id="defencestat" placeholder="Defence" class="output" value = ""></input>
         <br>
-        <input id="sp.atkiv" placeholder="Sp. Atk IV" class="iv" value = ""></input>
-        <input id="sp.atkev" placeholder="Sp. Atk EV" class="ev" value = ""></input>
-        <input id="sp.atkbase" placeholder="Sp. Atk Base" class="base" value = ""></input>
-        <input id="sp.atkstat" placeholder="Sp. Atk" class="output" value = ""></input>
+        <input id="spatkiv" placeholder="Sp. Atk IV" class="iv" value = ""></input>
+        <input id="spatkev" placeholder="Sp. Atk EV" class="ev" value = ""></input>
+        <input id="spatkbase" placeholder="Sp. Atk Base" class="base" value = ""></input>
+        <input id="spatkstat" placeholder="Sp. Atk" class="output" value = ""></input>
         <br>
-        <input id="sp.defiv" placeholder="Sp. Def IV" class="iv" value = ""></input>
-        <input id="sp.defev" placeholder="Sp. Def EV" class="ev" value = ""></input>
-        <input id="sp.defbase" placeholder="Sp. Def Base" class="base" value = ""></input>
-        <input id="sp.defstat" placeholder="Sp. Def" class="output" value = ""></input>
+        <input id="spdefiv" placeholder="Sp. Def IV" class="iv" value = ""></input>
+        <input id="spdefev" placeholder="Sp. Def EV" class="ev" value = ""></input>
+        <input id="spdefbase" placeholder="Sp. Def Base" class="base" value = ""></input>
+        <input id="spdefstat" placeholder="Sp. Def" class="output" value = ""></input>
         <br>
         <input id="speediv" placeholder="Speed IV" class="iv" value = ""></input>
         <input id="speedev" placeholder="Speed EV" class="ev" value = ""></input>
@@ -243,16 +243,17 @@
         <input id="calculate" type="button" value="calculate"/></input>
         <br>
         <p><u>pokemonstatisticcalculator</u>
-        <br>Pokemon is a Japanese media franchise encompassing video games, animated series and films, a trading card
-        <br>game, and other related media. This tool can be utlised to calculate the statistics of any pokemon
-        <br>throughout the various generations that were released.
+        <br>Pokémon is a Japanese media franchise that includes video games, animated series and films, a trading card
+        <br>game, and more. This tool is intended to be used for calculating the stats of the over 1000 Pokémon included in the 
+        <br>video games that have been released. It's particularly useful for simulating Pokémon trades, accurately determining
+        <br>a Pokémon's evolved statistics.
         <br>
         <br><u>equations</u>
-        <br>GEN I/II HP: (((Base + IV) * 2 + (SQRT(EV) / 4) * Level) / 100) + Level + 10
-        <br>GEN I/II OtherStat: (((Base + IV) * 2 + (SQRT(EV) / 4) * Level) / 100) + 5
+        <br>GEN I/II HP: Math.floor((((base + iv) * 2 + Math.floor(Math.ceil(Math.sqrt(ev)) / 4)) * level) / 100) + level + 10;
+        <br>GEN I/II OtherStat: Math.floor((((base + iv) * 2 + Math.floor(Math.ceil(Math.sqrt(ev)) / 4)) * level) / 100) + 5;
         <br>
-        <br>GEN III+ HP: ((2 * Base + IV + (SQRT(EV) / 4) * Level) / 100) + Level + 10
-        <br>GEN III+ OtherStat: (((2 * Base + IV + (SQRT(EV) / 4) * Level) / 100) + 5) x Nature
+        <br>GEN III+ HP: Math.floor((2 * base + iv + Math.floor(Math.sqrt(ev) / 4) * level) / 100) + level + 10;
+        <br>GEN III+ OtherStat: Math.floor((Math.floor((2 * base + iv + (Math.sqrt(ev) / 4) * level) / 100) + 5) * nature);
         </p>
     </body>
 </html>

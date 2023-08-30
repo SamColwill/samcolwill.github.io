@@ -39,17 +39,17 @@ jQuery(document).ready(function(){
       parseInt(jQuery('#defenceev').val()),
       parseInt(jQuery('#defencebase').val())
     ));
-    jQuery('#sp.atkstat').val(calculate_stat_gen12(
+    jQuery('#spatkstat').val(calculate_stat_gen12(
       parseInt(jQuery('#level').val()),
-      parseInt(jQuery('#sp.atkiv').val()),
-      parseInt(jQuery('#sp.atkev').val()),
-      parseInt(jQuery('#sp.atkbase').val())
+      parseInt(jQuery('#spatkiv').val()),
+      parseInt(jQuery('#spatkev').val()),
+      parseInt(jQuery('#spatkbase').val())
     ));
-    jQuery('#sp.defstat').val(calculate_stat_gen12(
+    jQuery('#spdefstat').val(calculate_stat_gen12(
       parseInt(jQuery('#level').val()),
-      parseInt(jQuery('#sp.defiv').val()),
-      parseInt(jQuery('#sp.defev').val()),
-      parseInt(jQuery('#sp.defbase').val())
+      parseInt(jQuery('#spdefiv').val()),
+      parseInt(jQuery('#spdefev').val()),
+      parseInt(jQuery('#spdefbase').val())
     ));
     jQuery('#speedstat').val(calculate_stat_gen12(
       parseInt(jQuery('#level').val()),
