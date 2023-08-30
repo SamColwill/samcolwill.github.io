@@ -61,17 +61,17 @@ jQuery(document).ready(function(){
 });
 
 function calculate_hpstat_gen12(level, iv, ev, base) {
-  return (((base * iv) * 2 + (Math.sqrt(ev) / 4) * level) / 100) + level + 10;
+  return Math.floor((((base + iv) * 2 + Math.floor(Math.ceil(Math.sqrt(ev)) / 4)) * level) / 100) + level + 10;
 }
 
 function calculate_stat_gen12(level, iv, ev, base) {
-  return (((base * iv) * 2 + (Math.sqrt(ev) / 4) * level) / 100) + 5;
+  return Math.floor((((base + iv) * 2 + Math.floor(Math.ceil(Math.sqrt(ev)) / 4)) * level) / 100) + 5;
 }
 
 function calculate_hpstat_gen3plus(level, iv, ev, base) {
-  return ((2 * base * iv + (Math.sqrt(ev) / 4) * level) / 100) + level + 10;
+  return Math.floor((2 * base + iv + Math.floor(Math.sqrt(ev) / 4) * level) / 100) + level + 10;
 }
 
 function calculate_stat_gen3plus(level, nature, iv, ev, base) {
-  return (((2 * base * iv + (Math.sqrt(ev) / 4) * level) / 100) + 5) * nature;
+  return Math.floor((Math.floor((2 * base + iv + (Math.sqrt(ev) / 4) * level) / 100) + 5) * nature);
 }
