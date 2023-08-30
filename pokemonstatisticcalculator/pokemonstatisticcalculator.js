@@ -11,8 +11,8 @@ jQuery(document).ready(function(){
             jQuery('#hpbase').val(pokemon_base_statistics[2]);
             jQuery('#attackbase').val(pokemon_base_statistics[3]);
             jQuery('#defencebase').val(pokemon_base_statistics[4]);
-            jQuery('#sp.atkbase').val(pokemon_base_statistics[5]);
-            jQuery('#sp.defbase').val(pokemon_base_statistics[6]);
+            jQuery('#spatkbase').val(pokemon_base_statistics[5]);
+            jQuery('#spdefbase').val(pokemon_base_statistics[6]);
             jQuery('#speedbase').val(pokemon_base_statistics[7]);
           }
         }
