@@ -8,11 +8,11 @@ jQuery(document).ready(function(){
     url:"pokemon statistics.csv",
     dataType:"text",
     success:function(data){
-      var pokemondatalist = "";
       var pokemon_statistics_data = data.split(/\r?\n|\r/);
       for(var count = 0; count<pokemon_statistics_data.length; count++){
         var pokemon_base_statistics = pokemon_statistics_data[count].split(",");
         pokemon_list_html += "<option>" + pokemon_base_statistics[1] + "</option>";
+        console.log(pokemon_list_html);
       }
     }
   });
