@@ -9,7 +9,7 @@ jQuery(document).ready(function(){
     dataType:"text",
     success:function(data){
       var pokemon_statistics_data = data.split(/\r?\n|\r/);
-      for(var count = 0; count<pokemon_statistics_data.length; count++){
+      for(var count = 1; count<pokemon_statistics_data.length - 1; count++){
         var pokemon_base_statistics = pokemon_statistics_data[count].split(",");
         pokemon_list_html += "<option>" + pokemon_base_statistics[1] + "</option>";
       }
@@ -39,6 +39,7 @@ jQuery(document).ready(function(){
     });
   });
 
+  //function to calculate pokemon stat
   jQuery('#calculate').click(function(){
     jQuery('#hpstat').val(calculate_hpstat_gen12(
       parseInt(jQuery('#level').val()),
@@ -76,6 +77,18 @@ jQuery(document).ready(function(){
       parseInt(jQuery('#speedev').val()),
       parseInt(jQuery('#speedbase').val())
     ));
+  });
+
+  //function to configure inputs based on generation 
+  jQuery('#configure').click(function(){
+    if (jQuery('#generation').find(":selected").text() == "Generation I/II") {
+      console.log("Configure for Generation I/II");
+      jQuery('#nature').attr("disabled", true) 
+    } else {
+      console.log("Configure for Generation III+");
+      jQuery('#nature').attr("disabled", false) 
+    }
+
   });
 });
 
