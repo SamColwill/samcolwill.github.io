@@ -1,4 +1,26 @@
-jQuery(document).ready(function(){
+jQuery(document).ready(function(){ 
+
+//populating the pokemon selector input box.
+  var pokemon_list = jQuery("#pokemon_list");
+  var pokemon_list_html = "";
+
+  jQuery.ajax({
+    url:"pokemon statistics.csv",
+    dataType:"text",
+    success:function(data){
+      var pokemondatalist = "";
+      var pokemon_statistics_data = data.split(/\r?\n|\r/);
+      for(var count = 0; count<pokemon_statistics_data.length; count++){
+        var pokemon_base_statistics = pokemon_statistics_data[count].split(",");
+        pokemon_list_html += "<option>" + pokemon_base_statistics[1] + "</option>";
+      }
+    }
+  });
+
+  console.log(pokemon_list_html);
+  pokemon_list.html(pokemon_list_html);
+
+  //function to pull pokemon stats from csv
   jQuery('#loadbasestats').click(function(){
     jQuery.ajax({
       url:"pokemon statistics.csv",
