@@ -12,13 +12,10 @@ jQuery(document).ready(function(){
       for(var count = 0; count<pokemon_statistics_data.length; count++){
         var pokemon_base_statistics = pokemon_statistics_data[count].split(",");
         pokemon_list_html += "<option>" + pokemon_base_statistics[1] + "</option>";
-        console.log(pokemon_list_html);
       }
+      pokemon_list.html(pokemon_list_html);
     }
   });
-
-  console.log(pokemon_list_html);
-  pokemon_list.html(pokemon_list_html);
 
   //function to pull pokemon stats from csv
   jQuery('#loadbasestats').click(function(){
