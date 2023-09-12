@@ -14,7 +14,8 @@
         <h1>samcolwill</h1>
 
         <select name="generation" id="generation">
-            <option>Generation I/II</option>
+            <option>Generation I</option>
+            <option>Generation II</option>
             <option>Generation III+</option>
         </select>
         <input id="configure" type="button" value="configure"></input>
@@ -22,10 +23,11 @@
         <br>
         <input id="pokemon" list="pokemon_list" placeholder="Pokemon">
         <datalist id="pokemon_list"></datalist>
+        <input id="loadbasestats" type="button" value="load base stats"></input>
         <br>
         <input id="level" placeholder="Level" value = ""></input>
         <br>
-        <input id="nature" list="nature_list" placeholder="Nature">
+        <input id="nature" list="nature_list" placeholder="Nature" disabled>
         <datalist id="nature_list">
             <option>Adamant</option>
             <option>Bashful</option>
@@ -53,13 +55,13 @@
             <option>Serious</option>
             <option>Timid</option>
         </datalist>
-        <input id="loadbasestats" type="button" value="load base stats"></input>
         <br>
         <br>
-        <input id="hpiv" placeholder="HP IV" class="iv" value = ""></input>
+        <input id="hpiv" placeholder="HP IV" class="iv" value = "" disabled></input>
         <input id="hpev" placeholder="HP EV" class="ev" value = ""></input>
         <input id="hpbase" placeholder="HP Base" class="base" value = ""></input>
         <input id="hpstat" placeholder="HP" class="output" value = ""></input>
+        <input id="calculate" type="button" value="calculate"/></input>
         <br>
         <input id="attackiv" placeholder="Attack IV" class="iv" value = ""></input>
         <input id="attackev" placeholder="Attack EV" class="ev" value = ""></input>
@@ -76,18 +78,15 @@
         <input id="spatkbase" placeholder="Sp. Atk Base" class="base" value = ""></input>
         <input id="spatkstat" placeholder="Sp. Atk" class="output" value = ""></input>
         <br>
-        <input id="spdefiv" placeholder="Sp. Def IV" class="iv" value = ""></input>
-        <input id="spdefev" placeholder="Sp. Def EV" class="ev" value = ""></input>
-        <input id="spdefbase" placeholder="Sp. Def Base" class="base" value = ""></input>
-        <input id="spdefstat" placeholder="Sp. Def" class="output" value = ""></input>
+        <input id="spdefiv" placeholder="Sp. Def IV" class="iv" value = "" disabled></input>
+        <input id="spdefev" placeholder="Sp. Def EV" class="ev" value = "" disabled></input>
+        <input id="spdefbase" placeholder="Sp. Def Base" class="base" value = "" disabled></input>
+        <input id="spdefstat" placeholder="Sp. Def" class="output" value = ""disabled></input>
         <br>
         <input id="speediv" placeholder="Speed IV" class="iv" value = ""></input>
         <input id="speedev" placeholder="Speed EV" class="ev" value = ""></input>
         <input id="speedbase" placeholder="Speed Base" class="base" value = ""></input>
         <input id="speedstat" placeholder="Speed" class="output" value = ""></input>
-        <br>
-        <br>
-        <input id="calculate" type="button" value="calculate"/></input>
         <br>
         <p><u>pokemonstatisticcalculator</u>
         <br>Pokémon is a Japanese media franchise that includes video games, animated series and films, a trading card
