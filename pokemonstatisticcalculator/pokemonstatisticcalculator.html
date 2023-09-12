@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>pokemonstatisticcalculator</title>
+        <title>pokemon statistic calculator</title>
 
         <link rel="stylesheet" href="../styles/base.css"></link>
         <link rel="stylesheet" href="pokemonstatisticcalculator.css"></link>
@@ -27,8 +27,8 @@
         <br>
         <input id="level" placeholder="Level" value = ""></input>
         <br>
-        <input id="nature" list="nature_list" placeholder="Nature" disabled>
-        <datalist id="nature_list">
+        <select name="nature" id="nature" disabled>
+            <option value="" disabled selected>Nature</option>
             <option>Adamant</option>
             <option>Bashful</option>
             <option>Bold</option>
@@ -54,52 +54,66 @@
             <option>Sass</option>
             <option>Serious</option>
             <option>Timid</option>
-        </datalist>
+        </select>
         <br>
         <br>
-        <input id="hpiv" placeholder="HP IV" class="iv" value = "" disabled></input>
-        <input id="hpev" placeholder="HP EV" class="ev" value = ""></input>
+        <input id="hpiv" placeholder="HP DV" class="iv" value = "" disabled></input>
+        <input id="hpev" placeholder="HP StatEXP" class="ev" value = ""></input>
         <input id="hpbase" placeholder="HP Base" class="base" value = ""></input>
         <input id="hpstat" placeholder="HP" class="output" value = ""></input>
         <input id="calculate" type="button" value="calculate"/></input>
         <br>
-        <input id="attackiv" placeholder="Attack IV" class="iv" value = ""></input>
-        <input id="attackev" placeholder="Attack EV" class="ev" value = ""></input>
+        <input id="attackiv" placeholder="Attack DV" class="iv" value = ""></input>
+        <input id="attackev" placeholder="Attack StatEXP" class="ev" value = ""></input>
         <input id="attackbase" placeholder="Attack Base" class="base" value = ""></input>
         <input id="attackstat" placeholder="Attack" class="output" value = ""></input>
         <br>
-        <input id="defenceiv" placeholder="Defense IV" class="iv" value = ""></input>
-        <input id="defenceev"placeholder="Defense EV" class="ev" value = ""></input>
+        <input id="defenceiv" placeholder="Defence DV" class="iv" value = ""></input>
+        <input id="defenceev"placeholder="Defence StatEXP" class="ev" value = ""></input>
         <input id="defencebase" placeholder="Defence Base" class="base" value = ""></input>
         <input id="defencestat" placeholder="Defence" class="output" value = ""></input>
         <br>
-        <input id="spatkiv" placeholder="Sp. Atk IV" class="iv" value = ""></input>
-        <input id="spatkev" placeholder="Sp. Atk EV" class="ev" value = ""></input>
+        <input id="spatkiv" placeholder="Sp. Atk DV" class="iv" value = ""></input>
+        <input id="spatkev" placeholder="Sp. Atk StatEXP" class="ev" value = ""></input>
         <input id="spatkbase" placeholder="Sp. Atk Base" class="base" value = ""></input>
         <input id="spatkstat" placeholder="Sp. Atk" class="output" value = ""></input>
         <br>
-        <input id="spdefiv" placeholder="Sp. Def IV" class="iv" value = "" disabled></input>
-        <input id="spdefev" placeholder="Sp. Def EV" class="ev" value = "" disabled></input>
+        <input id="spdefiv" placeholder="Sp. Def DV" class="iv" value = "" disabled></input>
+        <input id="spdefev" placeholder="Sp. Def StatEXP" class="ev" value = "" disabled></input>
         <input id="spdefbase" placeholder="Sp. Def Base" class="base" value = "" disabled></input>
         <input id="spdefstat" placeholder="Sp. Def" class="output" value = ""disabled></input>
         <br>
-        <input id="speediv" placeholder="Speed IV" class="iv" value = ""></input>
-        <input id="speedev" placeholder="Speed EV" class="ev" value = ""></input>
+        <input id="speediv" placeholder="Speed DV" class="iv" value = ""></input>
+        <input id="speedev" placeholder="Speed StatEXP" class="ev" value = ""></input>
         <input id="speedbase" placeholder="Speed Base" class="base" value = ""></input>
         <input id="speedstat" placeholder="Speed" class="output" value = ""></input>
         <br>
-        <p><u>pokemonstatisticcalculator</u>
+        <p><u>pokemon statistic calculator</u>
         <br>Pokémon is a Japanese media franchise that includes video games, animated series and films, a trading card
-        <br>game, and more. This tool is intended to be used for calculating the stats of the over 1000 Pokémon included in the 
-        <br>video games that have been released. It's particularly useful for simulating Pokémon trades, accurately determining
-        <br>a Pokémon's evolved statistics.
+        <br>game, and more. This tool is intended to be used for calculating the statistics of the over 1000 Pokémon
+        <br>that can be found in the core series of video games, from Pokémon Red released 1996 to Pokémon Scarlet
+        <br>in 2022.
         <br>
-        <br><u>equations</u>
-        <br>GEN I/II HP: Math.floor((((base + iv) * 2 + Math.floor(Math.ceil(Math.sqrt(ev)) / 4)) * level) / 100) + level + 10;
-        <br>GEN I/II OtherStat: Math.floor((((base + iv) * 2 + Math.floor(Math.ceil(Math.sqrt(ev)) / 4)) * level) / 100) + 5;
+        <br>It is particularly useful for those who utlise emulators to play Pokémon games as they are required to
+        <br>simulate the trading of Pokémon by editing Pokémon save files, part of this process is accurately
+        <br>determining a Pokémon's evolved statistics following an artifical trade evolution.
         <br>
-        <br>GEN III+ HP: Math.floor((2 * base + iv + Math.floor(Math.sqrt(ev) / 4) * level) / 100) + level + 10;
-        <br>GEN III+ OtherStat: Math.floor((Math.floor((2 * base + iv + (Math.sqrt(ev) / 4) * level) / 100) + 5) * nature);
-        </p>
+        <br>
+        <u>generation I/II equations</u>
+        <br>
+        <br>
+        <img src="images/Gen I&II HP Equation.svg" alt="Generation I/II HP Equation"></img>
+        <br>
+        <br>
+        <img src="images/Gen I&II OtherStat Equation.svg" alt="Generation I/II OtherStat Equation"></img>
+        <br>
+        <br>
+        <u>generation III+ equations</u>
+        <br>
+        <br>
+        <img src="images/Gen III+ HP Equation.svg" alt="Generation III+ HP Equation"></img>
+        <br>
+        <br>
+        <img src="images/Gen III+ OtherStat Equation.svg" alt="Generation III+ OtherStat Equation"></img>
     </body>
 </html>

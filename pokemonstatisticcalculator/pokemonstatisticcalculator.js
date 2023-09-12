@@ -162,32 +162,77 @@ jQuery(document).ready(function(){
   //function to configure inputs based on generation 
   jQuery('#configure').click(function(){
     if (jQuery('#generation').find(":selected").text() == "Generation I") {
-      console.log("Configure for Generation I");
+      console.log("Configure inputs for Generation I");
       clearinputs();
+      //Enable/Disable Inputs
       jQuery('#nature').attr("disabled", true)
       jQuery('#hpiv').attr("disabled", true)
       jQuery('#spdefiv').attr("disabled", true)
       jQuery('#spdefev').attr("disabled", true)
       jQuery('#spdefbase').attr("disabled", true)
       jQuery('#spdefstat').attr("disabled", true)
+      //Set IV placholder to DV
+      jQuery('#hpiv').attr("placeholder", "HP DV")
+      jQuery('#attackiv').attr("placeholder", "Attack DV")
+      jQuery('#defenceiv').attr("placeholder", "Defence DV")
+      jQuery('#spatkiv').attr("placeholder", "Sp. Atk DV")
+      jQuery('#spdefiv').attr("placeholder", "Sp. Def DV")
+      jQuery('#speediv').attr("placeholder", "Speed DV")
+      //Set EV placholder to StatEXP
+      jQuery('#hpev').attr("placeholder", "HP StatEXP")
+      jQuery('#attackev').attr("placeholder", "Attack StatEXP")
+      jQuery('#defenceev').attr("placeholder", "Defence StatEXP")
+      jQuery('#spatkev').attr("placeholder", "Sp. Atk StatEXP")
+      jQuery('#spdefev').attr("placeholder", "Sp. Def StatEXP")
+      jQuery('#speedev').attr("placeholder", "Speed StatEXP")
     } else if (jQuery('#generation').find(":selected").text() == "Generation II") {
-      console.log("Configure for Generation II");
+      console.log("Configure inputs for Generation II");
       clearinputs();
+      //Enable/Disable Inputs
       jQuery('#nature').attr("disabled", true)
       jQuery('#hpiv').attr("disabled", true)
       jQuery('#spdefiv').attr("disabled", true)
       jQuery('#spdefev').attr("disabled", true)
       jQuery('#spdefbase').attr("disabled", false)
       jQuery('#spdefstat').attr("disabled", false)
+      //Set IV placholder to DV
+      jQuery('#hpiv').attr("placeholder", "HP DV")
+      jQuery('#attackiv').attr("placeholder", "Attack DV")
+      jQuery('#defenceiv').attr("placeholder", "Defence DV")
+      jQuery('#spatkiv').attr("placeholder", "Sp. Atk DV")
+      jQuery('#spdefiv').attr("placeholder", "Sp. Def DV")
+      jQuery('#speediv').attr("placeholder", "Speed DV")
+      //Set EV placholder to StatEXP
+      jQuery('#hpev').attr("placeholder", "HP StatEXP")
+      jQuery('#attackev').attr("placeholder", "Attack StatEXP")
+      jQuery('#defenceev').attr("placeholder", "Defence StatEXP")
+      jQuery('#spatkev').attr("placeholder", "Sp. Atk StatEXP")
+      jQuery('#spdefev').attr("placeholder", "Sp. Def StatEXP")
+      jQuery('#speedev').attr("placeholder", "Speed StatEXP")
     } else {
-      console.log("Configure for Generation III+");
+      console.log("Configure inputs for Generation III+");
       clearinputs();
+      //Enable/Disable Inputs
       jQuery('#nature').attr("disabled", false)
       jQuery('#hpiv').attr("disabled", false)
       jQuery('#spdefiv').attr("disabled", false)
       jQuery('#spdefev').attr("disabled", false)
       jQuery('#spdefbase').attr("disabled", false)
       jQuery('#spdefstat').attr("disabled", false)
+      //Set IV placholder to IV
+      jQuery('#hpiv').attr("placeholder", "HP IV")
+      jQuery('#attackiv').attr("placeholder", "Attack IV")
+      jQuery('#defenceiv').attr("placeholder", "Defence IV")
+      jQuery('#spatkiv').attr("placeholder", "Sp. Atk IV")
+      jQuery('#spdefiv').attr("placeholder", "Sp. Def IV")
+      jQuery('#speediv').attr("placeholder", "Speed IV")
+      //Set EV placholder to StatEXP
+      jQuery('#hpev').attr("placeholder", "HP EV")
+      jQuery('#attackev').attr("placeholder", "Attack EV")
+      jQuery('#defenceev').attr("placeholder", "Defence EV")
+      jQuery('#spatkev').attr("placeholder", "Sp. Atk EV")
+      jQuery('#spdefev').attr("placeholder", "Sp. Def EV")
+      jQuery('#speedev').attr("placeholder", "Speed EV")
     }
   });
 
@@ -229,178 +274,178 @@ function clearinputs() {
   jQuery('#speedstat').val("");
 }
 
-function calculate_hpstat_gen12(level, iv, ev, base) {
-  return Math.floor((((base + iv) * 2 + Math.floor(Math.ceil(Math.sqrt(ev)) / 4)) * level) / 100) + level + 10;
+function calculate_hpstat_gen12(level, iv, statexp, base) {
+  return Math.floor((((base + iv) * 2 + Math.floor(Math.ceil(Math.sqrt(statexp)) / 4)) * level) / 100) + level + 10;
 }
 
-function calculate_stat_gen12(level, iv, ev, base) {
-  return Math.floor((((base + iv) * 2 + Math.floor(Math.ceil(Math.sqrt(ev)) / 4)) * level) / 100) + 5;
+function calculate_stat_gen12(level, iv, statexp, base) {
+  return Math.floor((((base + iv) * 2 + Math.floor(Math.ceil(Math.sqrt(statexp)) / 4)) * level) / 100) + 5;
 }
 
 function calculate_hpstat_gen3plus(level, iv, ev, base) {
-  return Math.floor((2 * base + iv + Math.floor(Math.sqrt(ev) / 4) * level) / 100) + level + 10;
+  return Math.floor((2 * base + iv + Math.floor(ev / 4) * level) / 100) + level + 10;
 }
 
 function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
-  stat_value = Math.floor((2 * base + iv + (Math.sqrt(ev) / 4) * level) / 100) + 5;
+  stat_value = Math.floor((2 * base + iv + Math.floor(ev / 4) * level) / 100) + 5;
   switch(nature) {
     case "Adamant":
-      if(stat = "attack") {
+      if(stat == "attack") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "spatk") {
+      if(stat == "spatk") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Bold":
-      if(stat = "defence") {
+      if(stat == "defence") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "attack") {
+      if(stat == "attack") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Brave":
-      if(stat = "attack") {
+      if(stat == "attack") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "speed") {
+      if(stat == "speed") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Calm":
-      if(stat = "spdef") {
+      if(stat == "spdef") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "attack") {
+      if(stat == "attack") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Careful":
-      if(stat = "spdef") {
+      if(stat == "spdef") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "spatk") {
+      if(stat == "spatk") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;;
     case "Gentle":
-      if(stat = "spdef") {
+      if(stat == "spdef") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "defence") {
+      if(stat == "defence") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Hasty":
-      if(stat = "speed") {
+      if(stat == "speed") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "defence") {
+      if(stat == "defence") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Impish":
-      if(stat = "defence") {
+      if(stat == "defence") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "statk") {
+      if(stat == "statk") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Jolly":
-      if(stat = "speed") {
+      if(stat == "speed") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "spatk") {
+      if(stat == "spatk") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Lax":
-      if(stat = "defence") {
+      if(stat == "defence") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "spdef") {
+      if(stat == "spdef") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Lonely":
-      if(stat = "attack") {
+      if(stat == "attack") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "defence") {
+      if(stat == "defence") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Mild":
-      if(stat = "spatk") {
+      if(stat == "spatk") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "defence") {
+      if(stat == "defence") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Modest":
-      if(stat = "spatk") {
+      if(stat == "spatk") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "attack") {
+      if(stat == "attack") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Naive":
-      if(stat = "speed") {
+      if(stat == "speed") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "spdef") {
+      if(stat == "spdef") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Naughty":
-      if(stat = "attack") {
+      if(stat == "attack") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "spdef") {
+      if(stat == "spdef") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Quiet":
-      if(stat = "spatk") {
+      if(stat == "spatk") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "speed") {
+      if(stat == "speed") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Rash":
-      if(stat = "spatk") {
+      if(stat == "spatk") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "spdef") {
+      if(stat == "spdef") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Relaxed":
-      if(stat = "defence") {
+      if(stat == "defence") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "speed") {
+      if(stat == "speed") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Sassy":
-      if(stat = "spdef") {
+      if(stat == "spdef") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "speed") {
+      if(stat == "speed") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
     case "Timid":
-      if(stat = "speed") {
+      if(stat == "speed") {
         stat_value = Math.floor(stat_value * 1.1);
       }
-      if(stat = "attack") {
+      if(stat == "attack") {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
