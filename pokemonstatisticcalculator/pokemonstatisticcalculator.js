@@ -244,7 +244,7 @@ function calculate_hpstat_gen3plus(level, iv, ev, base) {
 function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
   stat_value = Math.floor((2 * base + iv + (Math.sqrt(ev) / 4) * level) / 100) + 5;
   switch(nature) {
-    case Adamant:
+    case "Adamant":
       if(stat = "attack") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -252,7 +252,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Bold:
+    case "Bold":
       if(stat = "defence") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -260,7 +260,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Brave:
+    case "Brave":
       if(stat = "attack") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -268,7 +268,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Calm:
+    case "Calm":
       if(stat = "spdef") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -276,7 +276,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Careful:
+    case "Careful":
       if(stat = "spdef") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -284,7 +284,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;;
-    case Gentle:
+    case "Gentle":
       if(stat = "spdef") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -292,7 +292,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Hasty:
+    case "Hasty":
       if(stat = "speed") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -300,7 +300,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Impish:
+    case "Impish":
       if(stat = "defence") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -308,7 +308,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Jolly:
+    case "Jolly":
       if(stat = "speed") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -316,7 +316,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Lax:
+    case "Lax":
       if(stat = "defence") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -324,7 +324,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Lonely:
+    case "Lonely":
       if(stat = "attack") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -332,7 +332,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Mild:
+    case "Mild":
       if(stat = "spatk") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -340,7 +340,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Modest:
+    case "Modest":
       if(stat = "spatk") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -348,7 +348,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Naive:
+    case "Naive":
       if(stat = "speed") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -356,7 +356,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Naughty:
+    case "Naughty":
       if(stat = "attack") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -364,7 +364,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Quiet:
+    case "Quiet":
       if(stat = "spatk") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -372,7 +372,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Rash:
+    case "Rash":
       if(stat = "spatk") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -380,7 +380,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Relaxed:
+    case "Relaxed":
       if(stat = "defence") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -388,7 +388,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Sassy:
+    case "Sassy":
       if(stat = "spdef") {
         stat_value = Math.floor(stat_value * 1.1);
       }
@@ -396,7 +396,7 @@ function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
         stat_value = Math.floor(stat_value * 0.9);
       }
       break;
-    case Timid:
+    case "Timid":
       if(stat = "speed") {
         stat_value = Math.floor(stat_value * 1.1);
       }
