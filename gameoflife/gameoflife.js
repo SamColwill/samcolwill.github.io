@@ -3,7 +3,15 @@ const worldheight = 150;
 var world;
 var nextworld;
 
-var running;
+var running = false;
+var runfunction;
+var gamespeed = 200;
+
+var worldmouseposx = 0;
+var worldmouseposy = 0;
+
+var drawshape = "square";
+var drawsize = 1;
 
 //initialse both world and nextworld
 var world = new Array(worldwidth);
@@ -94,17 +102,64 @@ function gameoflifetick() {
 }
 
 function startgameoflife() {
-    running = setInterval(gameoflifetick, 200);
+    if(running == false) {
+        runfunction = setInterval(gameoflifetick, gamespeed);
+        running = true;
+    }
+}
+
+function decreasegameoflifespeed() {
+    if(gamespeed < 500) {
+        if(running = true) {
+            clearInterval(runfunction);
+            running = false;
+        }
+        gamespeed += 10;
+        updategamespeed();
+        runfunction = setInterval(gameoflifetick, gamespeed);
+        running = true;
+    }
+}
+
+function increasegameoflifespeed() {
+    if(gamespeed > 10) {
+        if(running = true) {
+            clearInterval(runfunction);
+            running = false;
+        }
+        gamespeed -= 10;
+        updategamespeed();
+        runfunction = setInterval(gameoflifetick, gamespeed);
+        running = true;
+    }
+}
+
+function resetgameoflifespeed() {
+    gamespeed = 200;
+    updategamespeed();
+}
+
+function updategamespeed() {
+    if(gamespeed < 100) {
+        jQuery('#gamespeed').attr("value", " " + gamespeed)
+    } else {
+        jQuery('#gamespeed').attr("value", gamespeed)
+    }
 }
 
 function stopgameoflife() {
-    clearInterval(running);
+    if(running = true) {
+        clearInterval(runfunction);
+        running = false;
+    }
 }
 
-function resetgameoflife() {
+function cleargameoflife() {
     stopgameoflife();
     emptyworld();
     gameoflifedisplay();
+    clearInterval(runfunction);
+    running = false;
 }
 
 function addlife(lifeform) {
@@ -209,4 +264,106 @@ function gameoflifedisplay() {
             }
         }
     }
+}
+
+jQuery(document).ready(function () {
+    var canvaspos = jQuery("#gameoflifecanvas").position();
+    jQuery(document).on("mousemove", function (event) {
+        worldmouseposx = ((event.pageX - 2 - canvaspos.left) / 4).toFixed(0);
+        worldmouseposy = ((event.pageY - 2 - canvaspos.top) / 4).toFixed(0);
+    });
+
+    jQuery("#gameoflifecanvas").mousedown(function () {
+        if(running = true) {
+            clearInterval(runfunction);
+            running = false;
+        }
+        drawshapefunction(worldmouseposx, worldmouseposy)
+        gameoflifedisplay();
+    });
+
+    function drawshapefunction(x, y) {
+        switch(drawshape) {
+            case "square":
+                console.log("here")
+                switch(drawsize) {
+                    case 1:
+                        world[parseInt(worldmouseposx)][parseInt(worldmouseposy)] = !world[parseInt(worldmouseposx)][parseInt(worldmouseposy)];
+                        break;
+                    case 2:
+                        if(world[parseInt(worldmouseposx)][parseInt(worldmouseposy)] == false) {
+                            world[parseInt(worldmouseposx) - 1][parseInt(worldmouseposy) - 1] = true;
+                            world[parseInt(worldmouseposx) - 1][parseInt(worldmouseposy)] = true;
+                            world[parseInt(worldmouseposx) - 1][parseInt(worldmouseposy) + 1] = true;
+                            world[parseInt(worldmouseposx)][parseInt(worldmouseposy) - 1] = true;
+                            world[parseInt(worldmouseposx)][parseInt(worldmouseposy)] = true;
+                            world[parseInt(worldmouseposx)][parseInt(worldmouseposy) + 1] = true;
+                            world[parseInt(worldmouseposx) + 1][parseInt(worldmouseposy) - 1] = true;
+                            world[parseInt(worldmouseposx) + 1][parseInt(worldmouseposy)] = true;
+                            world[parseInt(worldmouseposx) + 1][parseInt(worldmouseposy) + 1] = true;
+                        } else {
+                            world[parseInt(worldmouseposx) - 1][parseInt(worldmouseposy) - 1] = false;
+                            world[parseInt(worldmouseposx) - 1][parseInt(worldmouseposy)] = false;
+                            world[parseInt(worldmouseposx) - 1][parseInt(worldmouseposy) + 1] = false;
+                            world[parseInt(worldmouseposx)][parseInt(worldmouseposy) - 1] = false;
+                            world[parseInt(worldmouseposx)][parseInt(worldmouseposy)] = false;
+                            world[parseInt(worldmouseposx)][parseInt(worldmouseposy) + 1] = false;
+                            world[parseInt(worldmouseposx) + 1][parseInt(worldmouseposy) - 1] = false;
+                            world[parseInt(worldmouseposx) + 1][parseInt(worldmouseposy)] = false;
+                            world[parseInt(worldmouseposx) + 1][parseInt(worldmouseposy) + 1] = false;
+                        }
+                        break;
+                }
+                break;
+            case "circle":
+                switch(drawsize) {
+                    case 1:
+                        world[parseInt(worldmouseposx)][parseInt(worldmouseposy)] = !world[parseInt(worldmouseposx)][parseInt(worldmouseposy)];
+                        break;
+                    case 2:
+                        if(world[parseInt(worldmouseposx)][parseInt(worldmouseposy)] == false) {
+                            world[parseInt(worldmouseposx) - 1][parseInt(worldmouseposy)] = true;
+                            world[parseInt(worldmouseposx)][parseInt(worldmouseposy) - 1] = true;
+                            world[parseInt(worldmouseposx)][parseInt(worldmouseposy)] = true;
+                            world[parseInt(worldmouseposx)][parseInt(worldmouseposy) + 1] = true;
+                            world[parseInt(worldmouseposx) + 1][parseInt(worldmouseposy)] = true;
+                        } else {
+                            world[parseInt(worldmouseposx) - 1][parseInt(worldmouseposy)] = false;
+                            world[parseInt(worldmouseposx)][parseInt(worldmouseposy) - 1] = false;
+                            world[parseInt(worldmouseposx)][parseInt(worldmouseposy)] = false;
+                            world[parseInt(worldmouseposx)][parseInt(worldmouseposy) + 1] = false;
+                            world[parseInt(worldmouseposx) + 1][parseInt(worldmouseposy)] = false;
+                        }
+                        break;
+                }
+                break;
+        }
+    }
+});
+
+function decreasedrawsize() {
+    if(drawsize > 1) {
+        drawsize -= 1;
+    }
+    updatedrawoption()
+}
+
+function increasedrawsize() {
+    if(drawsize < 2) {
+        drawsize += 1;
+    }
+    updatedrawoption()
+}
+
+function changedrawshape() {
+    if (drawshape == "square") {
+        drawshape = "circle";
+    } else {
+        drawshape = "square";
+    }
+    updatedrawoption()
+}
+
+function updatedrawoption() {
+    jQuery('#drawoption').attr("value", drawshape.toString() + " " + drawsize);
 }

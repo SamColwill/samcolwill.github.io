@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="../styles/base.css"></link>
         <link rel="stylesheet" href="gameoflife.css"></link>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="gameoflife.js"></script>
     </head>
     <body>
@@ -14,13 +15,19 @@
 
         <canvas id="gameoflifecanvas" width="1200" height="600"></canvas>
         <br>
-        <input type="button" value="start" onclick="startgameoflife()"/></input>
-        <input type="button" value="stop" onclick="stopgameoflife()"/></input>
-        <input type="button" value="reset" onclick="resetgameoflife()"/></input>
-        <input type="button" value="add still life" onclick="addlife('block')"/></input>
-        <input type="button" value="add oscillator" onclick="addlife('toad')"/></input>
-        <input type="button" value="add spaceship" onclick="addlife('light-weight spaceship')"/></input>
-        <input type="button" value="add glider gun" onclick="addlife('glider gun')"/></input>
+        <input type="button" value="start" onclick="startgameoflife()"></input>
+        <input type="button" value="stop" onclick="stopgameoflife()"></input>
+        <input type="button" value="clear" onclick="cleargameoflife()"></input>
+        <input type="button" value="-" onclick="decreasegameoflifespeed()"></input>
+        <input id="gamespeed" type="button" value="200" onclick="resetgameoflifespeed()"></input>
+        <input type="button" value="+" onclick="increasegameoflifespeed()"></input>
+        <input type="button" value="-" onclick="decreasedrawsize()"></input>
+        <input id="drawoption" type="button" value="square 1" onclick="changedrawshape()"></input>
+        <input type="button" value="+" onclick="increasedrawsize()"></input>
+        <input type="button" value="add still life" onclick="addlife('block')"></input>
+        <input type="button" value="add oscillator" onclick="addlife('toad')"></input>
+        <input type="button" value="add spaceship" onclick="addlife('light-weight spaceship')"></input>
+        <input type="button" value="add glider gun" onclick="addlife('glider gun')"></input>
         <br>
         <p><u>conway's game of life</u>
         <br>The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician
