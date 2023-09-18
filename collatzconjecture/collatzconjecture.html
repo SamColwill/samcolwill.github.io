@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>collatzconjecture</title>
+        <title>collatz conjecture</title>
 
         <link rel="stylesheet" href="../styles/base.css"></link>
         <link rel="stylesheet" href="collatzconjecture.css"></link>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="collatzconjecture.js"></script>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     </head>
     <body>
         <a href="../index.html"><img src="../images/me.jpg" width="50" height="50"></img></a>
@@ -15,8 +15,8 @@
 
         <canvas id="graph" width="1200" height="600"></canvas>
         <br>
-        <input type="button" value="drawgraph" onclick="initialsecanvas()"/></input>
-        <input id="startingnumber" type="text"></input>
+        <input id="startingnumber" type="text" placeholder="enter an integer"></input>
+        <input type="button" value="plot" onclick="start_plot()"/></input>
         <br>
         <p><u>collatz conjecture</u>
         <br>The Collatz conjecture is one of the most famous unsolved problems in mathematics. The conjecture asks

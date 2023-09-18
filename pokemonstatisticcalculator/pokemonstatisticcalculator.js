@@ -283,11 +283,11 @@ function calculate_stat_gen12(level, iv, statexp, base) {
 }
 
 function calculate_hpstat_gen3plus(level, iv, ev, base) {
-  return Math.floor((2 * base + iv + Math.floor(ev / 4) * level) / 100) + level + 10;
+  return Math.floor(((2 * base + iv + Math.floor(ev / 4)) * level) / 100) + level + 10;
 }
 
 function calculate_stat_gen3plus(level, iv, ev, base, nature, stat) {
-  stat_value = Math.floor((2 * base + iv + Math.floor(ev / 4) * level) / 100) + 5;
+  stat_value = Math.floor(((2 * base + iv + Math.floor(ev / 4)) * level) / 100) + 5;
   switch(nature) {
     case "Adamant":
       if(stat == "attack") {
